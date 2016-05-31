@@ -1,7 +1,7 @@
 Docker Mailhog
 ==============
 
-**Docker for `Mailhog`_**
+**Docker for `Mailhog`_ **
 
 Build
 -----
