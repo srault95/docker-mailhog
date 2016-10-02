@@ -20,8 +20,8 @@ EXPOSE 8025
 
 VOLUME ["/var/lib/mail", "/etc/mailhog"]
 
-COPY docker-entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]		
+ADD docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 CMD ["-maildir-path", "/var/lib/mail", "-storage", "maildir", "-auth-file", "/etc/mailhog/passwd"]
