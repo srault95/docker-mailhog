@@ -1,7 +1,7 @@
 Docker Mailhog
 ==============
 
-**Docker for `Mailhog`_ **
+**Binary integration of `Mailhog`_ in Docker**
 
 Build
 -----
@@ -9,13 +9,7 @@ Build
 ::
     
     docker build -t rs/mailhog https://github.com/srault95/rs-mailhog.git
-    
-    # OR
-
-    git clone https://github.com/srault95/rs-mailhog.git
-    cd rs-mailhog
-    docker build -t rs/mailhog .
-    
+   
 Run
 ---
 
@@ -32,10 +26,10 @@ Run
       -v /var/lib/mail:/var/lib/mail rs/mailhog
     
     # Open web - default login/password (admin/admin) 
-    http://YOUR_PUBLIC_IP:1025
+    http://YOUR_PUBLIC_IP:8025
 
-Optional
---------
+Optional (usename/password)
+---------------------------
 
 ::
     
@@ -46,6 +40,7 @@ Optional
     mkdir /etc/mailhog
     MYPASS=$(docker run -it --rm rs/mailhog bcrypt mypassword)
     echo "myusername:${MYPASS}" > /etc/mailhog/passwd
+    
     # Add to docker run:
     -v /etc/mailhog:/etc/mailhog
     
