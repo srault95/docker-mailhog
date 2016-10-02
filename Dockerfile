@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV MAILHOG_RELEASE v0.2.0
+ENV MAILHOG_RELEASE v0.2.1
 ENV MAILHOG_USERNAME admin
 ENV MAILHOG_PASSWORD admin
 
@@ -12,7 +12,11 @@ RUN apk update \
 	&& rm -rf /var/cache/apk/* \
 	&& apk del curl
 
-EXPOSE 1025 8025
+#SMTP
+EXPOSE 1025
+
+#HTTP
+EXPOSE 8025
 
 VOLUME ["/var/lib/mail", "/etc/mailhog"]
 
